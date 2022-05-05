@@ -1,4 +1,5 @@
 const video = document.getElementById('videoInput')
+const capture = document.getElementById('capture')
 let interval;
 Promise.all([
     faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
@@ -27,7 +28,7 @@ async function recognizeFaces() {
     const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors, 0.5)
 
 
-    video.addEventListener('play', async () => {
+    capture.addEventListener('click', async () => {
         console.log('Playing')
         const canvas = faceapi.createCanvasFromMedia(video)
         //document.body.append(canvas)
